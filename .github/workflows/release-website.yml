@@ -6,11 +6,10 @@ on:
       - 'release-website-*'
     branches:
       - 'v3-synthetix-eth'
+      - 'releases'
 
 jobs:
   release-website:
-    # Should be good without checks, we wouldn't release smth that's broken
-    # if: ${{ github.event.check_suite.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - run: git config --global user.email engineering@snxdao.io
@@ -21,13 +20,13 @@ jobs:
           path: website
           repository: 'Synthetixio/v3.synthetix.eth'
           ref: 'master'
-          ssh-key: '${{ secrets.V3_WEBSITE_DEPLOYER_SSH_PRIVATE_KEY }}'
+          ssh-key: '${{ secrets.WEBSITE_SSH_KEY }}'
 
       - uses: actions/checkout@v4
         with:
           path: v3ui
           ref: '${{ github.sha }}'
-          ssh-key: '${{ secrets.SSH_PRIVATE_KEY }}'
+          ssh-key: '${{ secrets.V3UI_SSH_KEY }}'
 
       - run: yarn workspaces focus @snx-v3/website
         working-directory: v3ui
