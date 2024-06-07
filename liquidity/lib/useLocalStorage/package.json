@@ -1,9 +1,9 @@
 {
-  "name": "@snx-v3/parser",
+  "name": "@snx-v3/useLocalStorage",
   "private": true,
   "main": "index.ts",
   "version": "0.0.1",
   "dependencies": {
-    "viem": "^2.13.5"
+    "react": "^18.2.0"
   }
 }
