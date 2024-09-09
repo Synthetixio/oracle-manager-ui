@@ -34,7 +34,7 @@ const options = {
   },
 };
 
-const ignoredPackages = ['root'];
+const ignoredPackages = [];
 
 let updatedPackages = 0;
 
